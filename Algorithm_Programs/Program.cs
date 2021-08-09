@@ -9,6 +9,7 @@ namespace Algorithm_Programs
         {
             Console.WriteLine("Welcome to Algorith Programs!");
             Console.WriteLine("Press 1 for Factorial using Iteration and Recursion!");
+            Console.WriteLine("Press 2 for Binary Search on Textfile!");
             Console.WriteLine("----------------------------------------------------------------------------------------");
             while (choice != 15)
             {
@@ -23,6 +24,12 @@ namespace Algorithm_Programs
                         int number = Convert.ToInt32(Console.ReadLine());
                         long fact = rec.FactorialUsingRecursion(number);
                         Console.WriteLine("Factorial of " + number + " using Recursion is: " + fact);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Binary Search on File!");
+                        BinarySearchOnFile obj = new BinarySearchOnFile();
+                        obj.file();
                         break;
                 }
             }
