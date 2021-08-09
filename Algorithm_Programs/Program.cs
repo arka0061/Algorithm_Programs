@@ -10,6 +10,7 @@ namespace Algorithm_Programs
             Console.WriteLine("Welcome to Algorith Programs!");
             Console.WriteLine("Press 1 for Factorial using Iteration and Recursion!");
             Console.WriteLine("Press 2 for Binary Search on Textfile!");
+            Console.WriteLine("Press 3 for Insertion Sort on Textfile!");
             Console.WriteLine("----------------------------------------------------------------------------------------");
             while (choice != 15)
             {
@@ -30,6 +31,12 @@ namespace Algorithm_Programs
                         Console.WriteLine("Binary Search on File!");
                         BinarySearchOnFile obj = new BinarySearchOnFile();
                         obj.file();
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Insertion Sort on File!");
+                        InsertionSort sort = new InsertionSort();
+                        sort.file();
                         break;
                 }
             }
