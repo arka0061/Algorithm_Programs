@@ -19,28 +19,24 @@ namespace Algorithm_Programs
                 this.insertionSort(tokens);
             }
         }
-        public void insertionSort(string[] word)
+        public void insertionSort(string[] array)
         {
-            string[] tokens = word;
-            for (int i = 0; i < tokens.Length - 1; i++)
+            int i, j;
+
+            for (i = 1; i < array.Length; i++)
             {
-                for (int j = i + 1; j > 0; j--)
+                string value = array[i];
+                j = i - 1;
+                while ((j >= 0) && (array[j].CompareTo(value) > 0))
                 {
-                    if (tokens[j - 1].CompareTo(tokens[j]) > 0)
-                    {
-                        String temp = tokens[j - 1];
-                        tokens[j - 1] = tokens[j];
-                        tokens[i] = temp;
-                    }
+                    array[j + 1] = array[j];
+                    j--;
                 }
+                array[j + 1] = value;
             }
-            Console.WriteLine("After sorting :");
-            for (int i = 0; i < tokens.Length; i++)
-            {
-                Console.WriteLine(tokens[i]);
-            }
-            this.write(tokens);
+            this.write(array);
         }
+           
         public void write(string[] tokens)
         {
             if (File.Exists(textFile))
@@ -53,9 +49,8 @@ namespace Algorithm_Programs
                 using (StreamWriter stream = new StreamWriter(textFile, true))
                 {
                     try
-                    {
-                        stream.Write(item);
-
+                    {                    
+                        stream.Write(item+",");                     
                     }
                     catch
                     {

@@ -5,30 +5,30 @@ namespace Algorithm_Programs
 {
     class BinarySearchOnFile : IComparable
     {
-       static readonly string textFile = @"E:\\Bridglabz\\Algorithm_Programs\\Algorithm_Programs\\Word.txt";
-       public void file()
+        static readonly string textFile = @"E:\\Bridglabz\\Algorithm_Programs\\Algorithm_Programs\\Word.txt";
+        public void file()
         {
             if (File.Exists(textFile))
             {
                 // Read entire text file content in one string    
                 string text = File.ReadAllText(textFile);
                 String[] tokens = text.Split(",");
-                string[] array = new string[tokens.Length];      
+                string[] array = new string[tokens.Length];
                 Console.WriteLine("Enter the word to be searched :");
                 string word = Console.ReadLine();
-                Array.Sort(tokens);              
+                Array.Sort(tokens);
                 int result = binarySearch(tokens, word);
                 if (result != -1)
                 {
                     Console.WriteLine("Element found ");
                 }
                 else
-                    Console.WriteLine("Element not present");        
-            }        
+                    Console.WriteLine("Element not present");
+            }
         }
         public int binarySearch(String[] array, String x)
         {
-            int length = 0, range = array.Length - 1;       
+            int length = 0, range = array.Length - 1;
             while (length <= range)
             {
                 int mid = length + (range - length) / 2;
