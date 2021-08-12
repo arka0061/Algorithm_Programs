@@ -16,6 +16,7 @@ namespace Algorithm_Programs
             Console.WriteLine("Press 6 for Anagram!");
             Console.WriteLine("Press 7 for Prime Number!");
             Console.WriteLine("Press 8 for Palindrome and Prime!");
+            Console.WriteLine("Press 9 for UnorderedList!");
             Console.WriteLine("----------------------------------------------------------------------------------------");
             while (choice != 15)
             {
@@ -74,6 +75,12 @@ namespace Algorithm_Programs
                         Console.WriteLine("Palindrome and Prime!");
                         PrimePalindrome pap = new PrimePalindrome();
                         pap.primeAndPaldindrome();
+                        break;
+
+                    case 9:
+                        Console.WriteLine("Unordered List!");
+                        UnorderedList unordered = new UnorderedList();
+                        unordered.driver();
                         break;
                 }
             }

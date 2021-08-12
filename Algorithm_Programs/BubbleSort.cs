@@ -6,7 +6,7 @@ namespace Algorithm_Programs
 {
     public class BubbleSort
     {
-        public void bubbleSort()
+        public void bubbleSort() 
         {
             Console.WriteLine("Enter the length of an array");
             int number = Convert.ToInt32(Console.ReadLine());
@@ -14,7 +14,7 @@ namespace Algorithm_Programs
             Console.WriteLine("Enter the elements in array");
             for (int i = 0; i < number; i++)
             {
-                array[i] = Convert.ToInt32(Console.ReadLine());
+                array[i] =Convert.ToInt32(Console.ReadLine());
             }
             for (int i = 0; i < number; i++)
             {

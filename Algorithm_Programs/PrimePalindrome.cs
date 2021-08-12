@@ -23,7 +23,7 @@ namespace Algorithm_Programs
                    }         
                 num = newArray[i];
                 temp = num;
-                while (num > 0)
+                while (num > 0)     
                 {
                     rem = num % 10;  
                     num = num / 10;     

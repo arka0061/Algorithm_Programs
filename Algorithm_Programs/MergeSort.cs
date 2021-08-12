@@ -6,115 +6,63 @@ namespace Algorithm_Programs
 {
     public class MergeSort
     {
-        public void merge(int[] arr, int l, int m, int r)
+        public void MainMerge<T>(T[] values, int left, int mid, int right) where T : IComparable<T>
         {
-            /// Find sizes of two
-            /// subarrays to be merged
-            int n1 = m - l + 1;
-            int n2 = r - m;
+            T[] temp = new T[25];
+            int i, eol, num, pos;
 
-            /// Create temp arrays
-            int[] L = new int[n1];
-            int[] R = new int[n2];
-            int i, j;
+            eol = mid;
+            pos = left;
+            num = (right - left + 1);
 
-            /// Copy data to temp arrays
-            for (i = 0; i < n1; ++i)
-                L[i] = arr[l + i];
-            for (j = 0; j < n2; ++j)
-                R[j] = arr[m + 1 + j];
-
-            /// Merge the temp arrays
-
-            /// Initial indexes of first
-            /// and second subarrays
-            i = 0;
-            j = 0;
-
-            /// Initial index of merged
-            /// subarry array
-            int k = l;
-            while (i < n1 && j < n2)
+            while ((left <= eol) && (mid <= right))
             {
-                if (L[i] <= R[j])
-                {
-                    arr[k] = L[i];
-                    i++;
-                }
+                if (values[left].Equals(values[mid]))
+                    temp[pos++] = values[left++];
                 else
-                {
-                    arr[k] = R[j];
-                    j++;
-                }
-                k++;
+                    temp[pos++] = values[mid++];
             }
 
-            ///Copy remaining elements
-            /// of L[] if any
-            while (i < n1)
-            {
-                arr[k] = L[i];
-                i++;
-                k++;
-            }
+            while (left <= eol)
+                temp[pos++] = values[left++];
 
-            /// Copy remaining elements
-            /// of R[] if any
-            while (j < n2)
+            while (mid <= right)
+                temp[pos++] = values[mid++];
+
+            for (i = 0; i < num; i++)
             {
-                arr[k] = R[j];
-                j++;
-                k++;
+                values[right] = temp[right];
+                right--;
             }
         }
 
-        // Main function that
-        // sorts arr[l..r] using
-        // merge()
-        void sort(int[] arr, int l, int r)
+        public void sortMerge<T>(T[] values, int left, int right) where T : IComparable<T>
         {
-            if (l < r)
+            int mid;
+            if (right > left)
             {
-                // Find the middle
-                // point
-                int m = l + (r - l) / 2;
-
-                // Sort first and
-                // second halves
-                sort(arr, l, m);
-                sort(arr, m + 1, r);
-
-                // Merge the sorted halves
-                merge(arr, l, m, r);
+                mid = (right + left) / 2;
+                sortMerge(values, left, mid);
+                sortMerge(values, (mid + 1), right);
+                this.MainMerge(values, left, (mid + 1), right);
             }
         }
-
-        // A utility function to
-        // print array of size n */
-        static void printArray(int[] arr)
-        {
-            int n = arr.Length;
-            for (int i = 0; i < n; ++i)
-                Console.Write(arr[i] + " ");
-            Console.WriteLine();
-        }
-
-        // Driver code
         public void input()
         {
             Console.WriteLine("Enter the length of an array");
             int number = Convert.ToInt32(Console.ReadLine());
-            int[] array = new int[number];
+            string[] array = new string[number];
             Console.WriteLine("Enter the elements in array");
             for (int i = 0; i < number; i++)
             {
-                array[i] = Convert.ToInt32(Console.ReadLine());
+                array[i] = Console.ReadLine();
             }
-            printArray(array);
-            MergeSort ob = new MergeSort();
-            ob.sort(array, 0,number - 1);
-            Console.WriteLine("\nSorted array");
-            printArray(array);
+            int length = number;
+            this.sortMerge(array,0,length-1);
+            for (int i = 0; i < number; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
         }
     }
 }
