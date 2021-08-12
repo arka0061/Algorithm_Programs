@@ -7,15 +7,14 @@ namespace Algorithm_Programs
 {
     public class UnorderedList
     {
-        static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\textfile.txt";
-        public Linked_List list = new Linked_List();
+        static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\UnorderedText.txt";
+        public Linked_List<string> list = new Linked_List<string>();
         public void driver()
         {                        
             if (File.Exists(textFile))
             {
                 string text = File.ReadAllText(textFile);
                 String[] tokens = text.Split(",");
-                Console.WriteLine(tokens.Length);
                 for (int i = 0; i < tokens.Length; i++)
                 {
                     list.Add(tokens[i]);
@@ -29,13 +28,13 @@ namespace Algorithm_Programs
                     {
                         Console.WriteLine("Word Found");
                         list.Delete(tokens[count]);                        
-                        list.Display();
+                        list.DisplayUnordered();
                         return;
                     }
                     count++;
                 }
                 list.Add(search);
-                list.Display();               
+                list.DisplayUnordered();               
             }
         }     
     }

@@ -5,13 +5,15 @@ using System.IO;
 
 namespace Algorithm_Programs
 {
-    public class Linked_List
+    public class Linked_List<T> where T:IComparable
     {
-        static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\textfile.txt";
-        Node head = null;      
-        public void Add(string data)
+        static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\UnorderedText.txt";
+        static readonly string textFile2 = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\OrderedNumbers.txt";
+        Node<T> head = null;
+             
+        public void Add(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
             if (head == null)
             {
                 head = node;
@@ -19,7 +21,7 @@ namespace Algorithm_Programs
             }
             else
             {
-                Node temp = head;
+                Node<T> temp = head;
                 while (temp.next != null)
                 {
                     temp = temp.next;
@@ -27,29 +29,44 @@ namespace Algorithm_Programs
                 temp.next = node;
                 Console.WriteLine("Inserted "+node.data);
             }
-        }       
-        public void Display()
+        }
+       
+        public void DisplayUnordered()
         {
-            Node temp = head;
+            Node<T> temp = head;
             File.WriteAllText(textFile, String.Empty);
             while (temp != null)
             {               
                 using (StreamWriter stream = new StreamWriter(textFile, true))            
-                stream.Write(temp.data+",");                                                   
+                stream.Write(temp.data+",");        
                 Console.Write(temp.data + " ");
                 temp = temp.next;               
             }
-        }     
-        public void Delete(string data)
+            Console.WriteLine();
+        }
+        public void DisplayOrdered()
         {
-            Node temp = head;
-            Node prev = head;
+            Node<T> temp = head;
+            File.WriteAllText(textFile2, String.Empty);
+            while (temp != null)
+            {
+                using (StreamWriter stream = new StreamWriter(textFile2, true))
+                stream.Write(temp.data + ",");
+                Console.Write(temp.data + " ");
+                temp = temp.next;
+            }
+            Console.WriteLine();
+        }
+        public void Delete(T data)
+        {
+            Node<T> temp = head;
+            Node<T> prev = head;
             if (temp == null)
             {
                 Console.WriteLine("List is empty");
                 return;
             }
-            else if (temp.data == data)
+            else if (temp.data.Equals( data))
             {
                 head = temp.next;             
                 return;
@@ -59,7 +76,7 @@ namespace Algorithm_Programs
                 while (temp != null)
                 {
 
-                    if (temp.data == data)
+                    if (temp.data.Equals(data))
                     {
                         prev.next = temp.next;
                         Console.WriteLine("Deleted "+ temp.data);

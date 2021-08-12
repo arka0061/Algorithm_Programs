@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Algorithm_Programs
 {
-    public class Node
+    public class Node <T> where T :IComparable
     {
-        public string data;
-        public Node next = null;
-        public Node(string data)
+        public T data;
+        public Node<T> next = null;
+        public Node(T data)
         {
             this.data = data;
             this.next = null;
