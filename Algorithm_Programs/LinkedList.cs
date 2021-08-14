@@ -9,6 +9,7 @@ namespace Algorithm_Programs
     {
         static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\UnorderedText.txt";
         static readonly string textFile2 = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\OrderedNumbers.txt";
+        public int counter = 0;
         Node<T> head = null;
              
         public void Add(T data)
@@ -18,6 +19,8 @@ namespace Algorithm_Programs
             {
                 head = node;
                 Console.WriteLine("Inserted "+node.data);
+                counter++;
+
             }
             else
             {
@@ -28,7 +31,8 @@ namespace Algorithm_Programs
                 }
                 temp.next = node;
                 Console.WriteLine("Inserted "+node.data);
-            }
+                counter++;
+            }          
         }
        
         public void DisplayUnordered()
@@ -37,23 +41,31 @@ namespace Algorithm_Programs
             File.WriteAllText(textFile, String.Empty);
             while (temp != null)
             {               
-                using (StreamWriter stream = new StreamWriter(textFile, true))            
-                stream.Write(temp.data+",");        
-                Console.Write(temp.data + " ");
-                temp = temp.next;               
+                using (StreamWriter stream = new StreamWriter(textFile, true))stream.Write(temp.data);        
+                Console.Write(temp.data + " ");           
+                temp = temp.next;
+                if (temp != null)
+                {
+                    using(StreamWriter stream = new StreamWriter(textFile, true))stream.Write(",");
+                }
             }
             Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------------------------------");
+            Console.Write("Enter Your choice!");
         }
         public void DisplayOrdered()
         {
             Node<T> temp = head;
-            File.WriteAllText(textFile2, String.Empty);
+            File.WriteAllText(textFile2, String.Empty);             
             while (temp != null)
             {
-                using (StreamWriter stream = new StreamWriter(textFile2, true))
-                stream.Write(temp.data + ",");
-                Console.Write(temp.data + " ");
-                temp = temp.next;
+               using (StreamWriter stream = new StreamWriter(textFile2, true)) stream.Write(temp.data);                
+               Console.Write(temp.data + " ");
+               temp = temp.next;
+                if(temp!=null)
+                {
+                    using(StreamWriter stream = new StreamWriter(textFile2, true)) stream.Write(",");
+                }
             }
             Console.WriteLine();
         }
