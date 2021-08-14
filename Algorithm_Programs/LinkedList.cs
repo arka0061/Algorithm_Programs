@@ -8,10 +8,9 @@ namespace Algorithm_Programs
     public class Linked_List<T> where T:IComparable
     {
         static readonly string textFile = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\UnorderedText.txt";
-        static readonly string textFile2 = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\OrderedNumbers.txt";
-        public int counter = 0;
+        static readonly string textFile2 = @"E:\Bridglabz\Algorithm_Programs\Algorithm_Programs\OrderedNumbers.txt";    
         Node<T> head = null;
-             
+        public int counter=0;           
         public void Add(T data)
         {
             Node<T> node = new Node<T>(data);
@@ -68,6 +67,8 @@ namespace Algorithm_Programs
                 }
             }
             Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------------------------------");
+            Console.Write("Enter Your choice!");
         }
         public void Delete(T data)
         {

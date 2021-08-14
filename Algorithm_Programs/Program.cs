@@ -18,6 +18,7 @@ namespace Algorithm_Programs
             Console.WriteLine("Press 8 for Palindrome and Prime!");
             Console.WriteLine("Press 9 for UnorderedList!");
             Console.WriteLine("Press 10 for OrderedList!");
+            Console.WriteLine("Press 11 for Bank Cash Counter!");
             Console.WriteLine("----------------------------------------------------------------------------------------");
             while (choice != 15)
             {
@@ -90,6 +91,11 @@ namespace Algorithm_Programs
                         ordered.driver();
                         break;
 
+                    case 11:
+                        Console.WriteLine("Bank Cash Counter!");
+                        BankCashCounter bank = new BankCashCounter();
+                        bank.driver();
+                        break;
                 }
             }
         }
