@@ -6,7 +6,7 @@ namespace Algorithm_Programs
     class BinarySearchOnFile : IComparable
     {
         static readonly string textFile = @"E:\\Bridglabz\\Algorithm_Programs\\Algorithm_Programs\\Word.txt";
-        public void file()
+        public void CheckFile()
         {
             if (File.Exists(textFile))
             {
@@ -17,7 +17,7 @@ namespace Algorithm_Programs
                 Console.WriteLine("Enter the word to be searched :");
                 string word = Console.ReadLine();
                 Array.Sort(tokens);
-                int result = binarySearch(tokens, word);
+                int result = BinarySearch(tokens, word);
                 if (result != -1)
                 {
                     Console.WriteLine("Element found ");
@@ -26,7 +26,7 @@ namespace Algorithm_Programs
                     Console.WriteLine("Element not present");
             }
         }
-        public int binarySearch(String[] array, String x)
+        public int BinarySearch(String[] array, String x)
         {
             int length = 0, range = array.Length - 1;
             while (length <= range)

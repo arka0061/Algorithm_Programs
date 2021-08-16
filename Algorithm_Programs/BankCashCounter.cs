@@ -8,7 +8,7 @@ namespace Algorithm_Programs
     public class BankCashCounter
     {
         Queue<string> list = new Queue<string>();
-        public void driver()
+        public void Driver()
         {
             Console.WriteLine("Enter the number of People in Queue :");
             int number = Convert.ToInt32(Console.ReadLine());

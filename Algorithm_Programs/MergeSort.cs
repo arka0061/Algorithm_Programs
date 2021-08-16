@@ -36,18 +36,18 @@ namespace Algorithm_Programs
             }
         }
 
-        public void sortMerge<T>(T[] values, int left, int right) where T : IComparable<T>
+        public void SortMerge<T>(T[] values, int left, int right) where T : IComparable<T>
         {
             int mid;
             if (right > left)
             {
                 mid = (right + left) / 2;
-                sortMerge(values, left, mid);
-                sortMerge(values, (mid + 1), right);
+                SortMerge(values, left, mid);
+                SortMerge(values, (mid + 1), right);
                 this.MainMerge(values, left, (mid + 1), right);
             }
         }
-        public void input()
+        public void Input()
         {
             Console.WriteLine("Enter the length of an array");
             int number = Convert.ToInt32(Console.ReadLine());
@@ -58,7 +58,7 @@ namespace Algorithm_Programs
                 array[i] = Console.ReadLine();
             }
             int length = number;
-            this.sortMerge(array,0,length-1);
+            this.SortMerge(array,0,length-1);
             for (int i = 0; i < number; i++)
             {
                 Console.WriteLine(array[i]);

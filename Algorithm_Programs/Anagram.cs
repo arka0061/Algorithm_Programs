@@ -6,7 +6,7 @@ namespace Algorithm_Programs
 {
     public class Anagram
     {
-        public void anagramCheck()
+        public void AnagramCheck()
         {     
             Console.WriteLine("Enter 1st String");
             String string1 = Console.ReadLine();

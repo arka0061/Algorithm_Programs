@@ -16,10 +16,10 @@ namespace Algorithm_Programs
                 // Read entire text file content in one string    
                 string text = File.ReadAllText(textFile);
                 String[] tokens = text.Split(",");
-                this.insertionSort(tokens);
+                this.InsertionSorting(tokens);
             }
         }
-        public void insertionSort(string[] array)
+        public void InsertionSorting(string[] array)
         {
             int i, j;
             for (i = 1; i < array.Length; i++)

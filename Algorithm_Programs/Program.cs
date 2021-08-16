@@ -38,7 +38,7 @@ namespace Algorithm_Programs
                     case 2:
                         Console.WriteLine("Binary Search on File!");
                         BinarySearchOnFile obj = new BinarySearchOnFile();
-                        obj.file();
+                        obj.CheckFile();
                         break;
 
                     case 3:
@@ -50,51 +50,51 @@ namespace Algorithm_Programs
                     case 4:
                         Console.WriteLine("Bubble Sort!");
                         BubbleSort bubble = new BubbleSort();
-                        bubble.bubbleSort();
+                        bubble.CheckBubbleSort();
                         break;
 
 
                     case 5:
                         Console.WriteLine("Merge Sort!");
                         MergeSort merge = new MergeSort();
-                        merge.input();
+                        merge.Input();
                         break;
 
                     case 6:
                         Console.WriteLine("Anagram!");
                         Anagram anagram = new Anagram();
-                        anagram.anagramCheck();
+                        anagram.AnagramCheck();
                         break;
 
 
                     case 7:
                         Console.WriteLine("Prime Number!");
                         PrimeOrNot prime = new PrimeOrNot();
-                        prime.display();
+                        prime.Display();
                         break;
 
                     case 8:
                         Console.WriteLine("Palindrome and Prime!");
                         PrimePalindrome pap = new PrimePalindrome();
-                        pap.primeAndPaldindrome();
+                        pap.PrimeAndPaldindrome();
                         break;
 
                     case 9:
                         Console.WriteLine("Unordered List!");
                         UnorderedList unordered = new UnorderedList();
-                        unordered.driver();
+                        unordered.Driver();
                         break;
 
                     case 10:
                         Console.WriteLine("Ordered List!");
                         OrderedList ordered = new OrderedList();
-                        ordered.driver();
+                        ordered.Driver();
                         break;
 
                     case 11:
                         Console.WriteLine("Bank Cash Counter!");
                         BankCashCounter bank = new BankCashCounter();
-                        bank.driver();
+                        bank.Driver();
                         break;
                 }
             }

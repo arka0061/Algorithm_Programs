@@ -7,13 +7,13 @@ namespace Algorithm_Programs
     public class PrimePalindrome
     {
         public int TEN = 10;
-        public void primeAndPaldindrome()
+        public void PrimeAndPaldindrome()
         {
 
             List<string> anagramList = new List<string>();
             PrimeOrNot obj = new PrimeOrNot();
             int[] arr = new int[1000];
-            int[] newArray = obj.prime(arr);                                      
+            int[] newArray = obj.Prime(arr);                                      
             int num, rem, sum = 0, temp;
             for (int i = 0; i < newArray.Length; i++)
             {
